@@ -1,0 +1,9 @@
+title: Quentin's log
+email: qdeslandes@naccy.de
+url: "https://naccy.de"
+github_username:  qdeslandes
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
