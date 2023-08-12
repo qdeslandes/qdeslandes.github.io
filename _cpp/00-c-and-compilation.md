@@ -138,7 +138,7 @@ Functions are reusable pieces of code. You can define a function to perform a sp
 ```c
 int hello(int count)
 {
-    for (int i = 0; i < count ++i)
+    for (int i = 0; i < count; ++i)
         printf("Hello, world!\n");
 
     return count;
