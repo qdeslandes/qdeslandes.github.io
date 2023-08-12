@@ -7,3 +7,8 @@ github_username:  qdeslandes
 theme: minima
 plugins:
   - jekyll-feed
+
+collections:
+  cpp:
+    output: true
+    permalink: /cpp/:path/
