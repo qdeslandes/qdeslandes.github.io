@@ -66,7 +66,7 @@ Then, depending on your data type, your variable will use more or less bytes. Wh
 >If you want to know the range of values you can store in a given data type in C (and C++), see [`limits.h`](https://pubs.opengroup.org/onlinepubs/009695399/basedefs/limits.h.html). It defines various macro representing the minimum and maximum values that can be stored in a given data type:
 >`printf("char min=%d, max=%d\n", CHAR_MIN, CHAR_MAX);`
 
-The various standard implementations (your compiler, for example) are responsible for defining which size is each data type. It generally depends on the combination of architecture (x86, x86-64, arm64), operating system, and compiler. [On an `arm64` Linux host](https://github.com/qdeslandes/lessons/blob/main/C%2B%2B%20Programming/0.%20C%20and%20compilation/data_size.c):
+The various standard implementations (your compiler, for example) are responsible for defining which size is each data type. It generally depends on the combination of architecture (x86, x86-64, arm64), operating system, and compiler. [On an `arm64` Linux host](https://github.com/qdeslandes/qdeslandes.github.io/tree/main/_cpp/code/0.%20C%20and%20compilation/data_size.c):
 
 ```shell
 ❯ make data_size && ./data_size
@@ -167,4 +167,4 @@ File extensions here are completely arbitrary: `main.c` could be called `main.my
 
 - ["Programming languages -- C" - C11 standard draft from April 12, 2011.](http://port70.net/~nsz/c/c11/n1570.html)
 - ["The C Programming Language" - Brian W. Kernighan, Dennis M. Ritchie](https://kremlin.cc/k&r.pdf)
-- [Related source code - github.com/qdeslandes/lessons](https://github.com/qdeslandes/lessons/tree/main/C%2B%2B%20Programming/0.%20C%20and%20compilation)
+- [Related source code - github.com/qdeslandes](https://github.com/qdeslandes/qdeslandes.github.io/tree/main/_cpp/code)
