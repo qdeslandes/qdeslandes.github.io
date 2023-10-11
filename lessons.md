@@ -5,8 +5,8 @@ permalink: /lessons/
 
 <h2>C++ Programming</h2>
 
-<ul>
+<ol>
   {% for post in site.cpp %}
-    <li><a href="{{ post.url }}">{{ post.index }} - {{ post.title }}</a></li>
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
-</ul>
+</ol>

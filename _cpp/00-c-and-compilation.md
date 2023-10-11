@@ -2,7 +2,6 @@
 layout: page
 title:  "C and compilation"
 collection: cpp
-index: 0
 ---
 
 ## Let's start with C
