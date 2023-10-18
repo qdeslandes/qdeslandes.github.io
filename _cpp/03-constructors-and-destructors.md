@@ -2,7 +2,6 @@
 layout: page
 title:  "OOP - Constructors and destructors"
 collection: cpp
-published: false
 ---
 
 As previously discussed, classes are defined using the [`class`][class_keyword_cppref] keyword in C++, followed by their name and the members specifications.
