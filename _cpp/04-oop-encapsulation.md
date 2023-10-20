@@ -2,7 +2,7 @@
 layout: page
 title:  "OOP - Encapsulation"
 collection: cpp
-published: false
+published: true
 ---
 
 A couple of lessons ago, we started using `public` and `private` for our class members. I remember mentioning, "We'll talk about it later". Well, we are now "later".
