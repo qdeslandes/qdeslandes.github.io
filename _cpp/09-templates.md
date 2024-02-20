@@ -2,7 +2,7 @@
 layout: page
 title: "Templates"
 collection: cpp
-published: false
+published: true
 ---
 
 This lesson will introduce you to the concept of template and generic programming in C++. This subject by itself can be very challenging and introduce a lot of new concepts. Hence, we'll focus on the basic definition and usage of templates in C++.
