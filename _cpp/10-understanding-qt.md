@@ -2,7 +2,7 @@
 layout: page
 title: "Understanding Qt"
 collection: cpp
-published: false
+published: true
 ---
 
 This lesson aims to provide a high-level overview of Qt and its core concepts, before diving more into it later.
