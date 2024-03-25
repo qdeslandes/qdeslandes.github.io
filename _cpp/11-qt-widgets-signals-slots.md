@@ -70,12 +70,12 @@ GridLayout {
 
     TextField {
         id: nameField
-        label: "Name:"
+        text: "Name:"
     }
 
     TextField {
         id: emailField
-        label: "Email:"
+        text: "Email:"
     }
 
     Button {
