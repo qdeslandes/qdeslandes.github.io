@@ -46,7 +46,7 @@ public:
 int main()
 {
     Log l("Hello");
-    Lob b("world!);
+    Lob b("world!");
 
     l.compare(b);
 }
