@@ -13,9 +13,9 @@ The project has witnessed significant progress over the last couple of months, c
 
 The `bpfilter` documentation is automatically generated and published at [bpfilter.io](https://bpfilter.io/) for every merged pull request. The documentation is split in two parts: the user documentation, which explains how to use `bpfilter`, and the developer documentation, which details the project's internals.
 
-The user documentation has been updated with existing features. The ["Usage"](https://bpfilter.io/usage/index.html) page is a good starting point if you want to try `bpfilter`. The developer documentation has also been improved but to a lesser extent: it’s accurate, but not all the components are documented.
+The user documentation has been updated with existing features. The ["Usage"](https://bpfilter.io/usage/index.html) page is a good starting point if you want to try `bpfilter`. The developer documentation has also been improved, but to a lesser extent: it’s accurate, but not all the components are documented.
 
-There was previously a page on [bpfilter.io](https://bpfilter.io/) that would contain a reference to the complete internal API of the project. This page was filled with unorganized internal API details, brought no value to the documentation, and was very slow to generate. It has been removed in favor of a per-component documentation which is more usable.
+There was previously a page on [bpfilter.io](https://bpfilter.io/) that would contain a reference to the complete internal API of the project. This page was filled with unorganized internal API details, brought no value to the documentation, and was very slow to generate. It has been removed in favor of a per-component documentation, which is more usable.
 
 Apart from improving the documentation by importing more of the source code documentation into it, the developer documentation would also benefit from a high-level overview of the project: what are the different components and how they work together. A few schema and diagrams would help!
 
@@ -55,7 +55,7 @@ chain BF_HOOK_XDP policy ACCEPT
 
 The way `bpfilter` defines filtering rules has also evolved since 2023: the structure is now simpler, easier to understand.
 
-The `chain` is the high-level object used by `bpfilter` to represent filtering rules. A chain will be converted into a BPF program then attached to a specific hook in the kernel. Consequently, a chain is composed of:
+The `chain` is the high-level object used by `bpfilter` to represent filtering rules. A chain will be converted into a BPF program, then attached to a specific hook in the kernel. Consequently, a chain is composed of:
 
 - The name of the hook it should filter from
 - A default action (`policy`) to perform in case no rule matches the packet
@@ -78,11 +78,11 @@ A `rule` now contains one or more `matchers`. A matcher represents a matching cr
 
 **Bytecode generation**
 
-The logic used by `bpfilter` to generate the bytecode evolves and grows according to the new features introduced in the codebase. Matchers are a good example of this as they require specific bytecode to be generated to properly parse the packet and compare it to reference data.
+The logic used by `bpfilter` to generate the bytecode evolves and grows according to the new features introduced in the codebase. Matchers are a good example of this, as they require specific bytecode to be generated to properly parse the packet and compare it to reference data.
 
 `bpfilter` relies on a codegen (`struct bf_cgen`) object to represent the bytecode generation context. A codegen contains a reference to a chain (the ruleset), and a BPF program (`struct bf_program`).
 
-Originally, `bpfilter` would create multiple programs for a codegen: one program for each network interface. But this was a subpar solution: some hooks are defined per-interface (e.g. XDP), while others applies to every network interface (`BPF_NETFILTER`). This behaviour has been modified so a codegen generates a single BPF program, but multiple codegens can be defined for XDP and TC hooks. A user can choose which interface to attach their XDP or TC chain using the [hook's `ifindex` option](https://bpfilter.io/usage/bfcli.html#chains).
+Originally, `bpfilter` would create multiple programs for a codegen: one program for each network interface. But this was a subpar solution: some hooks are defined per-interface (e.g. XDP), while others apply to every network interface (`BPF_NETFILTER`). This behavior has been modified so a codegen generates a single BPF program, but multiple codegens can be defined for XDP and TC hooks. A user can choose which interface to attach their XDP or TC chain using the [hook's `ifindex` option](https://bpfilter.io/usage/bfcli.html#chains).
 
 Each BPF program generated for a codegen will be called every time a packet passes through the hook it is attached to and perform the following action:
 - Initialize a small runtime context to store metadata that might be used to filter the packet more efficiently
@@ -129,7 +129,7 @@ Currently, you need to manually build `bpfilter` if you want to test it. It’s 
 
 **Fix `nftables` support (H2 2024?)**
 
-Support for `nftables` is essential. `nftables` requires a custom patch to support `bpfilter`, this patch is in the project's repository, and `nftables` can be built easily with `make nftables`. I would love to see `nftables` use `bpfilter` as a way to offload filtering to XDP in the future.
+Support for `nftables` is essential. `nftables` requires a custom patch to support `bpfilter`, this patch is in the project's repository, and `nftables` can be built easily with `make nftables`. I would love to see `nftables` use `bpfilter` as a way to offload filtering to XDP in the future. I would like to spend time on this task: I think it could benefit both `bpfilter` and `nftables`.
 
 **End-to-end testing (H1 2025)**
 
